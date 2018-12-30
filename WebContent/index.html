@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<html ng-app="myApp">
+<head>
+	<title>Chikitsa App</title>
+	
+
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/js/mdb.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+	<script type="text/javascript" src="https://code.angularjs.org/1.7.4/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers/MainController.js"></script>
+	
+	<script type="text/javascript" src="js/controllers/SignupController.js"></script>
+	
+
+
+</head>
+<body >
+		<header class="container">
+			<div class="logo">
+				<img src="css/img/logo.png">
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#">Login</a>
+					<li><a href="#" id="signup">Sign Up</a></li>	
+				</ul>
+			</nav>
+		</header>
+
+		<!-- MODAL STARTS -->
+		<!-- 	<div class="modal" id="modal_role">
+		<div class="custom_modal">
+			<h1>Whats your role ?</h1>
+			<div class="modal_content">
+				<a href="#">
+					<img src="css/img/role_patient.png">
+					<h3>Patient</h3>
+				</a>
+				<a href="#">
+					<img src="css/img/role_clerk.png">
+					<h3>Clerk</h3>
+				</a>
+				<a href="#">
+					<img src="css/img/role_doctor.png">
+					<h3>Doctor</h3>
+				</a>
+			</div>
+		</div>
+	</div> -->
+		<!-- MODAL ENDS -->
+		<main class="container content" ng-view >
+			<!-- <section class="hero">
+				<h1>Best in class treatment, in your neighbourhood</h1>
+				<p>Get a quick checkup at your nearest Chikitsa centre,and get consulted by the emiment doctors of the country, Track status, ask queries hassle free.</p>
+				<a  data-toggle="modal" data-target="#modalSocial">Get Started- It's Free</a>
+			</section>
+			<div class="device">
+				<figure>
+					<img src="css/img/landing_graphic.png" alt="iconography">
+				</figure>
+			</div> -->
+		</main>
+		
+<!--  -->
+</body>
+</html>
