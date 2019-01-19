@@ -1,5 +1,6 @@
 <!-- Default form register -->
-<div class="parentsignup" >
+
+<div class="parentsignup">
 <form class="text-center border border-light p-5">
 
     <p class="h4 mb-4">Sign up</p>
@@ -38,30 +39,9 @@
 
     <!-- Sign up button -->
     <button class="btn btn-info my-4 btn-block" type="submit" ng-click="signup()">Sign in</button>
-
-    <!-- Social register -->
-    <!-- <p>or sign up with:</p>
-
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-facebook"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-twitter"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-linkedin"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-github"></i>
-    </a> -->
+    <p data-ng-show="signupsuccess">Hi {{firstName}} You have been registered successfully. Please Login </p>
 
     <hr>
-
-    <!-- Terms of service -->
-    <!-- <p>By clicking
-        <em>Sign up</em> you agree to our
-        <a href="" target="_blank">terms of service</a> and
-        <a href="" target="_blank">terms of service</a>. </p> -->
 
 </form>
 <!-- Default form register -->
@@ -73,10 +53,10 @@
     <p class="h4 mb-4">Sign in</p>
 
     <!-- Email -->
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" data-ng-model="userName">
 
     <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" data-ng-model="loginPassword">
 
     <div class="d-flex justify-content-around">
         <div>
@@ -93,29 +73,16 @@
     </div>
 
     <!-- Sign in button -->
-    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
-
-    <!-- Register -->
-    <!-- <p>Not a member?
-        <a href="">Register</a>
-    </p> -->
-
-    <!-- Social login -->
-    <!-- <p>or sign in with:</p>
-
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-facebook"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-twitter"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-linkedin"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-github"></i>
-    </a> -->
-
+    <input class="btn btn-info btn-block my-4" type="submit" ng-click="login()">
 </form>
+
+<a href="#!/nodal">officer panel</a>
+<a href="#!/doctor">doctor panel</a>
+<a href="#!/patient">patient panel</a>
 </div>
+
+
+
+
+
 <!-- Default form login -->

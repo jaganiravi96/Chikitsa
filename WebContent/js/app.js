@@ -12,6 +12,12 @@ myApp.config(['$routeProvider', function($routeProvider){
 	when('/signup',{
 		templateUrl:'views/signup.html',
 		controller:'SignupController'
+	}).when('/nodal',{
+		templateUrl:'views/officer.html',
+		controller:'SignupController'
+	}).when('/doctor',{
+		templateUrl:'views/doctor.html',
+		controller:'SignupController'
 	}).
 	otherwise({
       redirectTo: '/main'

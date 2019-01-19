@@ -7,18 +7,25 @@ public class User {
 	private String name;
 	private String contact;
 	private String usertype;
+	private String empid;
+	private String experience;
+	private String status;
 		
 	public User() {
 		super();
 	}
 
-	public User(String aadhar, String password, String name, String contact, String usertype) {
+	public User(String aadhar, String password, String name, String contact, String usertype, String empid,
+			String experience, String status) {
 		super();
 		this.aadhar = aadhar;
 		this.password = password;
 		this.name = name;
 		this.contact = contact;
 		this.usertype = usertype;
+		this.empid = empid;
+		this.experience = experience;
+		this.status = status;
 	}
 
 	public String getAadhar() {
@@ -60,5 +67,28 @@ public class User {
 	public void setUsertype(String usertype) {
 		this.usertype = usertype;
 	}
-	
+
+	public String getEmpid() {
+		return empid;
+	}
+
+	public void setEmpid(String empid) {
+		this.empid = empid;
+	}
+
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }

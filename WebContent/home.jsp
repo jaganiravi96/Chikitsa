@@ -7,7 +7,15 @@
 <title>HOME</title>
 </head>
 <body>
-Hii <%= request.getAttribute("name") %>
+Hii   &nbsp;&nbsp;&nbsp; 
+<%-- <%= request.getAttribute("name") %> --%>
+<a href=""> Logout </a>  
 <hr>
+<p align="center"><a href="appointment.jsp">New Appointment</a><p>
+<hr>
+<a href="Service?reqflag=getAptdetail">Manage Appointment</a><br>
+<a href="Service?reqflag=getProdetail">Modify profile</a><br>
+<a href="status.jsp">Status of ticket</a><br>
+<a href="getusers.jsp">Search Users(shows doctor and user profile)</a>
 </body>
 </html>
