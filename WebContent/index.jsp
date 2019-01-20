@@ -7,13 +7,13 @@
 <title>Sign up</title>
 </head>
 <body>
-<form action="Service" method="post">
+<form action="Service" method="get">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
     
-    <input type="hidden" name="req" value="userform">
+    <input type="hidden" name="reqflag" value="userform">
 
 	<input type="hidden" name="usertype" value="abc">
 
