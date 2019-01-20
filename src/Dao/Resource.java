@@ -62,7 +62,7 @@ public class Resource {
 	public ArrayList<User> getAllUser() {
 		ArrayList<User> list = new ArrayList<>();
 		try {
-			String sql = "select * from basic_detail";// where usertype != 'Nodel'";
+			String sql = "select * from basic_detail where usertype != 'Nodel'";
 			Statement st = conn.createStatement();
 			ResultSet rt = st.executeQuery(sql);
 			while (rt.next()) {

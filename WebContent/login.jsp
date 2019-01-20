@@ -7,13 +7,13 @@
 <title>login</title>
 </head>
 <body>
-<form action="Service" method="post">
+<form action="Service" method="get">
   <div class="container">
   
     <h1>Login</h1>
     <hr>
     
-    <input type="hidden" name="req" value="loginform">
+    <input type="hidden" name="reqflag" value="loginform">
 
 	<label for="aadhar"><b>Aadhar ID</b></label>
     <input type="text" placeholder="Enter Aadhar no." name="id" required> 

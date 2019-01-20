@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.beans.editors.BooleanEditor;
+
 import Dao.Resource;
 import model.Appointment;
 import model.User;
@@ -23,7 +25,7 @@ public class Service extends HttpServlet {
 		
 		String reqflag = request.getParameter("reqflag");
 		Resource r1 = new Resource();
-		System.out.println(reqflag);
+		System.out.println(reqflag + "hiii");
 		
 		if(reqflag.equalsIgnoreCase("signup"))
 		{
@@ -39,22 +41,35 @@ public class Service extends HttpServlet {
 			u.setContact(contact);
 			u.setPassword(password);
 			u.setName(firstName+" "+lastName);
-			u.setUsertype(usertype); 
+			u.setUsertype(usertype);
+						
 			String name1 = r1.createUser(u);
+			if(name1 != null)
+			{
+				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+				request.setAttribute("name", name1);
+				rd.forward(request, response);
+			}
+			else
+			{
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+				rd.forward(request, response);
+			}
 			
 		}
+		
 		if(reqflag.equalsIgnoreCase("loginform"))
 		{
-			String aadhar= request.getParameter("userName");
+			String aadhar= request.getParameter("id");
 			String password = request.getParameter("password");
-			String contact = request.getParameter("userName");
+			String contact = request.getParameter("id");
 			
 			User u = new User();
 			
 			u.setAadhar(aadhar);
 			u.setPassword(password);
 			u.setContact(contact);
-			System.out.println(aadhar+password);
+						
 			User u1 = r1.userLogin(u);
 			
 			if(u1.getName() != null)
@@ -70,7 +85,6 @@ public class Service extends HttpServlet {
 			}
 		}
 		
-
 		if(reqflag.equalsIgnoreCase("getProDetail"))
 		{	
 			ArrayList<User> list = r1.getAllUser();	
