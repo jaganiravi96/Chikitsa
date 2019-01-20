@@ -13,12 +13,16 @@
     <p>Please fill in this form to create an account.</p>
     <hr>
     
-    <input type="hidden" name="reqflag" value="userform">
+    <input type="hidden" name="reqflag" value="signup">
 
 	<input type="hidden" name="usertype" value="abc">
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter name" name="name" required>
+	<label for="name"><b>First Name</b></label>
+    <input type="text" placeholder="Enter name" name="firstname" required>
+	<br>
+	
+    <label for="name"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter name" name="lastname" required>
 	<br>
 	
 	<label for="password"><b>password</b></label>
@@ -26,7 +30,7 @@
     <br>
     
     <label for="contact"><b>Contact</b></label>
-    <input type="text" placeholder="Enter contact no." name="contact" required> 
+    <input type="text" placeholder="Enter contact no." name="phone" required> 
     <br>
     
     <label for="aadhar"><b>Aadhar ID</b></label>
