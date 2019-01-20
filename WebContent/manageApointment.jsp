@@ -34,8 +34,8 @@ int count = 0;
 		{	
 %>
 <td><input type="checkbox" name="check<%=count%>" value=<%= a.getAadhar() %>></td>
-<td><%= a %></td>
-<td><%= a.getAadhar()%></td>
+<td><%= a.getTaskid() %></td>
+<td><%=  a.getAadhar()  %></td>
 <td><%= a.getIllness() %></td>
 </tr>
 <%

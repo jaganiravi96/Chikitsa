@@ -12,30 +12,32 @@
 <h3>USERS DEATAIL</h3>
 <br>
 <%
-@SuppressWarnings("unchecked")
-ArrayList<User> list = (ArrayList<User>)request.getAttribute("list");
+ // ArrayList<User> list = (ArrayList<User>)request.getAttribute("jsonlist"); 
 
-if(list != null)
-{
-	int count = 0; 
-	for(User a : list)
-	{
-%>
-User Id: <%= a.getUsertype() %><br>
-User Type  <%=a.getAadhar() %><br>
-Name : <%=a.getName()%><br>
+//if(list != null)
+//{
+//	int count = 0; 
+//	for(User a : list)
+//	{ %>
+
+<%-- //User Id: <%= a.getUsertype() %><br>
+//User Type  <%=a.getAadhar() %><br>
+//Name : <%=a.getName()%><br>
 Contact: <%=a.getContact() %><br>
 Employee Id: <%=a.getEmpid() %><br>
 Experience: <%=a.getExperience() %><br>
-Status: <%=a.getStatus() %>
-<br>
+Status: <%=a.getStatus() %> <br> --%>
+
+
+<%-- <%
+		}
+	}
+%> --%>
+<%=  (String)request.getAttribute("jsonlist") %>
+ <br><br><br>
 <input type="button" name="update" value="Update">
 <input type="button" name="update" value="Delete">
 
 <hr>
-<%
-		}
-	}
-%>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package model;
 
 public class Appointment {
+	private String taskid;
 	private String aadhar;
 	private String illness;
 	private String symptoms;
@@ -13,10 +14,11 @@ public class Appointment {
 	public Appointment() {
 		super();
 	}
-	
-	public Appointment(String aadhar, String illness, String symptoms, String duration, String medication,
-			String mHistory, String gHistory, String severity) {
+
+	public Appointment(String taskid, String aadhar, String illness, String symptoms, String duration,
+			String medication, String mHistory, String gHistory, String severity) {
 		super();
+		this.taskid = taskid;
 		this.aadhar = aadhar;
 		this.illness = illness;
 		this.symptoms = symptoms;
@@ -25,6 +27,14 @@ public class Appointment {
 		this.mHistory = mHistory;
 		this.gHistory = gHistory;
 		this.severity = severity;
+	}
+
+	public String getTaskid() {
+		return taskid;
+	}
+
+	public void setTaskid(String taskid) {
+		this.taskid = taskid;
 	}
 
 	public String getAadhar() {
@@ -90,5 +100,5 @@ public class Appointment {
 	public void setSeverity(String severity) {
 		this.severity = severity;
 	}
-	
+		
 }

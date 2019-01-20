@@ -9,7 +9,7 @@
 <title>Ticket Status</title>
 </head>
 <body>
-<h3 align="center">APPOINTMENT DEATAIL</h3>
+<h3 align="center">APPOINTMENT DETAIL</h3>
 <hr>
 <br>
 <%
@@ -21,7 +21,6 @@ ArrayList<Appointment> list = (ArrayList<Appointment>)request.getAttribute("list
 <th></th>
 <th>Ticket No.</th>
 <th>Patient Aadhar Id</th>
-<th>illness</th>
 </tr>
 <tr>
 <%
@@ -31,8 +30,7 @@ ArrayList<Appointment> list = (ArrayList<Appointment>)request.getAttribute("list
 	{
 %>
 <td><input type="checkbox" name="check" value=<%= a.getAadhar() %>></td>
-<td><%= a %></td>
-<td><%= a.getAadhar()%></td>
+<td><%= a.getAadhar() %></td>
 <td><%= a.getIllness() %></td>
 </tr>
 <%

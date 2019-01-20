@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sun.beans.editors.BooleanEditor;
 
-import Dao.Resource;
+import dao.Dao;
+import dao.DaoImpl;
 import model.Appointment;
 import model.User;
+import util.JsonUtil;
 
 @WebServlet("/Service")
 public class Service extends HttpServlet {
@@ -24,7 +26,7 @@ public class Service extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String reqflag = request.getParameter("reqflag");
-		Resource r1 = new Resource();
+		Dao r1 = new DaoImpl();
 		System.out.println(reqflag + "hiii");
 		
 		if(reqflag.equalsIgnoreCase("signup"))
@@ -60,7 +62,7 @@ public class Service extends HttpServlet {
 		
 		if(reqflag.equalsIgnoreCase("loginform"))
 		{
-			String aadhar= request.getParameter("id");
+			String aadhar = request.getParameter("id");
 			String password = request.getParameter("password");
 			String contact = request.getParameter("id");
 			
@@ -85,13 +87,20 @@ public class Service extends HttpServlet {
 			}
 		}
 		
+		if(reqflag.equals("getprofile"))
+		{
+			String name = request.getParameter("name");
+		}
+		
 		if(reqflag.equalsIgnoreCase("getProDetail"))
 		{	
 			ArrayList<User> list = r1.getAllUser();	
+			String jsonlist = JsonUtil.convertToJson(list);
+			//System.out.println(jsonlist);
 			if(list != null)
 			{
 				RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
-				request.setAttribute("list", list);
+				request.setAttribute("jsonlist", jsonlist);
 				rd.forward(request, response);
 			}
 			else
@@ -112,13 +121,16 @@ public class Service extends HttpServlet {
 			String gHistory= request.getParameter("ghistory");
 			String severity= request.getParameter("severity");
 			
-			Appointment a = new Appointment(aadhar, illness, symptoms, duration, medication, mHistory, gHistory, severity);
+			String taskid= r1.generateId();
+			Appointment a = new Appointment(taskid, aadhar, illness, symptoms, duration, medication, mHistory, gHistory, severity);
 			
-			String name1 = r1.createAppointment(a);
-			if(name1 != null)
+			String flag = r1.createAppointment(a);
+			r1.assigne_Doctor(taskid);
+			
+			if(taskid != null)
 			{
 				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-				request.setAttribute("name", name1);
+				request.setAttribute("taski", taskid);
 				rd.forward(request, response);
 			}
 			else
@@ -150,7 +162,7 @@ public class Service extends HttpServlet {
 			int count = Integer.parseInt(request.getParameter("count"));
 			ArrayList<String> id_list = new ArrayList<>();
 			String btn = request.getParameter("btn");
-			System.out.println(count+ btn);
+			System.out.println(count+ btn + "hiiiiiiii");
 			for(int i=0; i<count; i++)
 			{
 				String l1 = request.getParameter("check"+i);
@@ -175,7 +187,20 @@ public class Service extends HttpServlet {
 			}
 		}
 		
-		
-		
+		if(reqflag.equalsIgnoreCase("getAptStsDetail"))
+		{			
+			ArrayList<Appointment> list = r1.getAllAppointment();	
+			if(list != null)
+			{
+				RequestDispatcher rd = request.getRequestDispatcher("status.jsp");
+				request.setAttribute("list", list);
+				rd.forward(request, response);
+			}
+			else
+			{
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+				rd.forward(request, response);
+			}	
+		}
 	}
 }
