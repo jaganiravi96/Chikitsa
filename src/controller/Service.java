@@ -16,6 +16,7 @@ import com.sun.beans.editors.BooleanEditor;
 import dao.Dao;
 import dao.DaoImpl;
 import model.Appointment;
+import model.Appointment_Status;
 import model.User;
 import util.JsonUtil;
 
@@ -90,13 +91,14 @@ public class Service extends HttpServlet {
 		if(reqflag.equals("getprofile"))
 		{
 			String name = request.getParameter("name");
+			String aadhar = request.getParameter("name");
+			
 		}
 		
 		if(reqflag.equalsIgnoreCase("getProDetail"))
 		{	
 			ArrayList<User> list = r1.getAllUser();	
 			String jsonlist = JsonUtil.convertToJson(list);
-			//System.out.println(jsonlist);
 			if(list != null)
 			{
 				RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
@@ -130,7 +132,7 @@ public class Service extends HttpServlet {
 			if(taskid != null)
 			{
 				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-				request.setAttribute("taski", taskid);
+				request.setAttribute("taskid", taskid);
 				rd.forward(request, response);
 			}
 			else
@@ -162,6 +164,7 @@ public class Service extends HttpServlet {
 			int count = Integer.parseInt(request.getParameter("count"));
 			ArrayList<String> id_list = new ArrayList<>();
 			String btn = request.getParameter("btn");
+			//
 			System.out.println(count+ btn + "hiiiiiiii");
 			for(int i=0; i<count; i++)
 			{
@@ -187,9 +190,9 @@ public class Service extends HttpServlet {
 			}
 		}
 		
-		if(reqflag.equalsIgnoreCase("getAptStsDetail"))
+		if(reqflag.equalsIgnoreCase("getStatus"))
 		{			
-			ArrayList<Appointment> list = r1.getAllAppointment();	
+			ArrayList<Appointment_Status> list = r1.getAppointmentStatus();	
 			if(list != null)
 			{
 				RequestDispatcher rd = request.getRequestDispatcher("status.jsp");

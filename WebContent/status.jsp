@@ -1,3 +1,4 @@
+<%@page import="model.Appointment_Status"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Appointment"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -14,24 +15,24 @@
 <br>
 <%
 @SuppressWarnings("unchecked")
-ArrayList<Appointment> list = (ArrayList<Appointment>)request.getAttribute("list");
+ArrayList<Appointment_Status> list = (ArrayList<Appointment_Status>)request.getAttribute("list");
 %>
 <table border="1" align="center">
 <tr>
 <th></th>
 <th>Ticket No.</th>
-<th>Patient Aadhar Id</th>
+<th>Doctor Aadhar Id</th>
 </tr>
 <tr>
 <%
 	if(list != null){
 	int count = 0; 
-	for(Appointment a : list)
+	for(Appointment_Status a : list)
 	{
 %>
-<td><input type="checkbox" name="check" value=<%= a.getAadhar() %>></td>
-<td><%= a.getAadhar() %></td>
-<td><%= a.getIllness() %></td>
+<td><input type="checkbox" name="check" value=<%= a.getTask_id() %>></td>
+<td><%= a.getTask_id() %></td>
+<td><%= a.getDoctor_id() %></td>
 </tr>
 <%
 		}

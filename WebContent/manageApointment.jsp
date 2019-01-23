@@ -33,7 +33,7 @@ int count = 0;
 		for(Appointment a : list)
 		{	
 %>
-<td><input type="checkbox" name="check<%=count%>" value=<%= a.getAadhar() %>></td>
+<td><input type="checkbox" name="check<%=count%>" value=<%= a.getTaskid() %>></td>
 <td><%= a.getTaskid() %></td>
 <td><%=  a.getAadhar()  %></td>
 <td><%= a.getIllness() %></td>

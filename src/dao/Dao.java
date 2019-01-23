@@ -3,6 +3,7 @@ package dao;
 import java.util.ArrayList;
 
 import model.Appointment;
+import model.Appointment_Status;
 import model.User;
 
 public interface Dao {
@@ -12,7 +13,7 @@ public interface Dao {
 	public String createUser(User u);
 	public void deleteUser(String id);
 	public ArrayList<Appointment> getAllAppointment();
-	public ArrayList<Appointment> getAllAppointmentStatus();
+	public ArrayList<Appointment_Status> getAppointmentStatus();
 	public ArrayList<User> getAllUser();
 	public String generateId();
 	public User getUser(String id);

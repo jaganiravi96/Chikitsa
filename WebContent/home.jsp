@@ -15,7 +15,7 @@ Hii   &nbsp;&nbsp;&nbsp;
 <hr>
 <a href="Service?reqflag=getAptdetail">Manage Appointment</a><br>
 <a href="Service?reqflag=getProdetail">Modify profile</a><br>
-<a href="Service?reqflag=getAptStsDetail">Status of ticket</a><br>
+<a href="Service?reqflag=getStatus">Status of ticket</a><br>
 <a href="Service?reqflag=getprofile">Search Users(shows doctor and user profile)</a>
 </body>
 </html>
