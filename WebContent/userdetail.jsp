@@ -10,7 +10,7 @@
 Search With Aadhar Id :
 <input type="text" name="aadhar"><br>
 <input type="button" value="get Detail"><br><br>
-Shows all user Users<input type="button" value="User Detail">
+Shows all User<input type="button" value="User Detail">
 Shows all Doctor <input type="button" value="User Detail">
 </body>
 </html>

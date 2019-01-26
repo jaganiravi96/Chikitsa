@@ -17,7 +17,6 @@ public class DbTranscation {
 		catch (SQLException | ClassNotFoundException e) 
 		{
 			e.printStackTrace();
-			
 		}
 		return conn;
 	}

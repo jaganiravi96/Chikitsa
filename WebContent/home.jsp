@@ -13,9 +13,9 @@ Hii   &nbsp;&nbsp;&nbsp;
 <hr>
 <p align="center"><a href="appointment.jsp">New Appointment</a><p>
 <hr>
-<a href="Service?reqflag=getAptdetail">Manage Appointment</a><br>
-<a href="Service?reqflag=getProdetail">Modify profile</a><br>
-<a href="Service?reqflag=getStatus">Status of ticket</a><br>
-<a href="Service?reqflag=getprofile">Search Users(shows doctor and user profile)</a>
+<a href="appointment?reqflag=getAptdetail">Manage Appointment</a><br>
+<a href="profile?reqflag=getProdetail">Modify profile</a><br>
+<a href="appointment?reqflag=getStatus">Status of ticket</a><br>
+<a href="profile?reqflag=getprofile">Search Users(shows doctor and user profile)</a>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>login</title>
 </head>
 <body>
-<form action="Service" method="get">
+<form action="profile" method="get">
   <div class="container">
   
     <h1>Login</h1>

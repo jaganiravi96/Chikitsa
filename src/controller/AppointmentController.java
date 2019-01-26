@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,107 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.beans.editors.BooleanEditor;
-
-import dao.Dao;
-import dao.DaoImpl;
 import model.Appointment;
 import model.Appointment_Status;
-import model.User;
-import util.JsonUtil;
+import service.dao.AppointmentDao;
+import service.daoImpl.AppointmentDaoImpl;
 
-@WebServlet("/Service")
-public class Service extends HttpServlet {
+@WebServlet("/appointment")
+public class AppointmentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String reqflag = request.getParameter("reqflag");
-		Dao r1 = new DaoImpl();
+		AppointmentDao r1 = new AppointmentDaoImpl();
 		System.out.println(reqflag + "hiii");
 		
-		if(reqflag.equalsIgnoreCase("signup"))
-		{
-			String firstName = request.getParameter("firstname");
-			String lastName = request.getParameter("lastname");
-			String contact = request.getParameter("phone");
-			String aadhar= request.getParameter("aadhar");
-			String password = request.getParameter("password");
-			String usertype = request.getParameter("usertype");
-			
-			User u = new User();
-			u.setAadhar(aadhar);
-			u.setContact(contact);
-			u.setPassword(password);
-			u.setName(firstName+" "+lastName);
-			u.setUsertype(usertype);
-						
-			String name1 = r1.createUser(u);
-			if(name1 != null)
-			{
-				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-				request.setAttribute("name", name1);
-				rd.forward(request, response);
-			}
-			else
-			{
-				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-				rd.forward(request, response);
-			}
-			
-		}
-		
-		if(reqflag.equalsIgnoreCase("loginform"))
-		{
-			String aadhar = request.getParameter("id");
-			String password = request.getParameter("password");
-			String contact = request.getParameter("id");
-			
-			User u = new User();
-			
-			u.setAadhar(aadhar);
-			u.setPassword(password);
-			u.setContact(contact);
-						
-			User u1 = r1.userLogin(u);
-			
-			if(u1.getName() != null)
-			{
-				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-				request.setAttribute("name", u1.getName());
-				rd.forward(request, response);
-			}
-			else
-			{
-				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-				rd.forward(request, response);
-			}
-		}
-		
-		if(reqflag.equals("getprofile"))
-		{
-			String name = request.getParameter("name");
-			String aadhar = request.getParameter("name");
-			
-		}
-		
-		if(reqflag.equalsIgnoreCase("getProDetail"))
-		{	
-			ArrayList<User> list = r1.getAllUser();	
-			String jsonlist = JsonUtil.convertToJson(list);
-			if(list != null)
-			{
-				RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
-				request.setAttribute("jsonlist", jsonlist);
-				rd.forward(request, response);
-			}
-			else
-			{
-				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-				rd.forward(request, response);
-			}	
-		}
-		
+		//=============================== create appointment =============================================
 		if(reqflag.equalsIgnoreCase("appointment"))
 		{
 			String aadhar = request.getParameter("aadhar");
@@ -128,6 +42,7 @@ public class Service extends HttpServlet {
 			
 			String flag = r1.createAppointment(a);
 			r1.assigne_Doctor(taskid);
+			System.out.println(flag);
 			
 			if(taskid != null)
 			{
@@ -143,6 +58,7 @@ public class Service extends HttpServlet {
 			
 		}
 		
+		//=============================== get all appointment detail =============================================
 		if(reqflag.equalsIgnoreCase("getAptDetail"))
 		{			
 			ArrayList<Appointment> list = r1.getAllAppointment();	
@@ -159,6 +75,7 @@ public class Service extends HttpServlet {
 			}	
 		}
 		
+		//=============================== update/delete appointment detail =============================================
 		if(reqflag.equalsIgnoreCase("getApt"))
 		{	
 			int count = Integer.parseInt(request.getParameter("count"));
@@ -190,6 +107,7 @@ public class Service extends HttpServlet {
 			}
 		}
 		
+		//=============================== get appointment status =============================================
 		if(reqflag.equalsIgnoreCase("getStatus"))
 		{			
 			ArrayList<Appointment_Status> list = r1.getAppointmentStatus();	
@@ -205,5 +123,7 @@ public class Service extends HttpServlet {
 				rd.forward(request, response);
 			}	
 		}
+		
+		
 	}
 }

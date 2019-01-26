@@ -16,7 +16,7 @@
 @SuppressWarnings("unchecked")
 ArrayList<Appointment> list = (ArrayList<Appointment>)request.getAttribute("list");
 %>
-<form action="Service" method="get">
+<form action="appointment" method="get">
 <table border="1" align="center">
 <tr>
 <th></th>

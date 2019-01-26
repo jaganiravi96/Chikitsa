@@ -7,7 +7,7 @@
 <title>Sign up</title>
 </head>
 <body>
-<form action="Service" method="get">
+<form action="profile" method="get">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>

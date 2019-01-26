@@ -7,7 +7,7 @@
 <title>Appointment</title>
 </head>
 <body>
-<form action="Service" method="get">
+<form action="appointment" method="get">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an appointment.</p>
